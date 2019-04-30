@@ -10,9 +10,6 @@
 //! \brief Tractor simulation model based of kinematic bicycle model.\n
 class SSimulator : public SVehicle {
 private:
-//! Working copy of the model parameters (assumed that SSimulator and SReader cannot work at the same time)
-	struct VehicleState ModelState;
-
 //! Virtual time step in sec (in realtime simulation will be syncronized to system time)
 	double VirtualStepTime;
 

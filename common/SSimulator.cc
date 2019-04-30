@@ -8,6 +8,8 @@
 
 
 ERROR_CODE SSimulator::Step(double* pTime, bool bFirst) {
+	struct VehicleState ModelState; /* working copy */
+	
 	if (bFirst) {
 		/* initialize state of the model to some default values */
 		
@@ -24,6 +26,9 @@ ERROR_CODE SSimulator::Step(double* pTime, bool bFirst) {
 		ModelState.Delta = 0.0;
 		ModelState.Velocity = 1.0;
 	} else {
+		
+		GetState(&ModelState);
+		
 		double IntegrationStepTime = VirtualStepTime / nIterationsOfIntegrationPerStep;
 		
 		for (int i = 0; i<nIterationsOfIntegrationPerStep; i++) {
